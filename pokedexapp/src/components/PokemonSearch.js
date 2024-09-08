@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { searchPokemon } from '../services/api';
 import { useNavigate } from 'react-router-dom';
+import { getEnglishName } from '../utils/pokemonNameUtils';
 
 const PokemonSearch = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -12,7 +13,7 @@ const PokemonSearch = () => {
     e.preventDefault();
     setError('');
     try {
-      const result = await searchPokemon(searchTerm);
+      const result = await searchPokemon(getEnglishName(searchTerm));
       if (result) {
         navigate(`/pokemon/${result.id}`);
       } else {

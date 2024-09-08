@@ -3,11 +3,13 @@ import PokemonSearch from './PokemonSearch';
 import { getAllPokemon } from '../services/api';
 import PokemonCard from './PokemonCard';
 import { useNavigate } from 'react-router-dom';
+import { getGermanName } from '../utils/pokemonNameUtils';
+
 const PokemonList = () => {
     const [pokemonList, setPokemonList] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
-    const pokemonPerPage = 24;
+    const pokemonPerPage = 28;
     const navigate = useNavigate();
   useEffect(() => {
     const fetchAllPokemon = async () => {
@@ -36,14 +38,15 @@ const PokemonList = () => {
       if (isLoading) {
         return <div>Loading all Pokémon...</div>;
       }
+      
       return (
         <div className="pokemon-list">
-          <h1>Complete Pokédex</h1>
+          <h1>Kompletter Pokédex</h1>
           <PokemonSearch />
           <button onClick={handleRandomPokemon}>Random Pokémon</button>
           <div className="pokemon-grid">
             {currentPokemon.map((pokemon, index) => (
-              <PokemonCard key={pokemon.name} pokemon={pokemon} pokedexNumber ={indexOfFirstPokemon + index + 1} />
+              <PokemonCard key={pokemon.name}  pokemon={{...pokemon, name: getGermanName(pokemon.name)}} pokedexNumber ={indexOfFirstPokemon + index + 1} />
             ))}
           </div>
           <div className="pagination">

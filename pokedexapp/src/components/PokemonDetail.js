@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getPokemonDetails, getPokemonSpecies } from '../services/api';
+import { getGermanName } from '../utils/pokemonNameUtils';
 import EvolutionChain from './EvolutionChain';
 const PokemonDetail = () => {
   const { id } = useParams();
@@ -20,7 +21,7 @@ const PokemonDetail = () => {
   
     return (
         <div className="pokemon-detail">
-          <h2>#{pokemon.id} {pokemon.name}</h2>
+          <h2>#{pokemon.id} {getGermanName(pokemon.name)}</h2>
           <img 
         src={pokemon.sprites.other['official-artwork'].front_default} 
         alt={pokemon.name} 

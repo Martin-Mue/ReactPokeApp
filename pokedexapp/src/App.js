@@ -4,6 +4,7 @@ import PokemonList from './components/PokemonList';
 import PokemonDetail from './components/PokemonDetail';
 import PokemonQuiz from './components/PokemonQuiz';
 import PokemonReadingExercise from './components/PokemonReadingExercise';
+import WritingExercise from './components/WritingExercise';
 import './App.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <li><Link to="/">Pokédex</Link></li>
           <li><Link to="/quiz">Pokémon-Quiz</Link></li>
           <li><Link to="/reading">Leseübung</Link></li>
+          <li><Link to="/writing">Schreibübung</Link></li>
         
           </nav>
         </header>
@@ -25,6 +27,7 @@ function App() {
             <Route path="/pokemon/:id" element={<PokemonDetail />} />
             <Route path="/quiz" element={<PokemonQuiz />} />
             <Route path="/reading" element={<PokemonReadingExercise />} />
+            <Route path="/writing" element={<WritingExercise />} />
           </Routes>
         </main>
       </div>

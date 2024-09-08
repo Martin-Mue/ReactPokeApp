@@ -148,7 +148,7 @@ const PokemonReadingExercise = () => {
           <span>{word}</span>
         )}
       </div>
-      <button onClick={speakWord}>Vorlesen</button>
+      <button className="answer-button"  onClick={speakWord}>Vorlesen</button>
       <div>
         <label>Geschwindigkeit: 
           <input type="range" min="0.5" max="2" step="0.1" value={speed} onChange={(e) => setSpeed(parseFloat(e.target.value))} />
@@ -163,7 +163,7 @@ const PokemonReadingExercise = () => {
         <option value="easy">Leicht (mit Silbentrennung)</option>
         <option value="hard">Schwer (ohne Silbentrennung)</option>
       </select>
-      <button onClick={loadRandomWord}>Nächstes Wort</button>
+      <button className="nav-button"onClick={loadRandomWord}>Nächstes Wort</button>
     </div>
   );
 };

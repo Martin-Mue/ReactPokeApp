@@ -6,8 +6,11 @@
   --card-background: #fff;
   --card-border: #ddd;
   --hover-color: #ffcb05;
+  --answer-button-color: #4caf50;
+  --nav-button-color: #3b4cca;
 }
 
+/* Allgemeine Stile */
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
@@ -21,6 +24,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+/* Navigation */
 .navbar {
   background-color: var(--primary-color);
   padding: 10px 0;
@@ -52,6 +56,7 @@ code {
   color: var(--hover-color);
 }
 
+/* Pokémon-Karten und Grid */
 .pokemon-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -84,6 +89,7 @@ code {
   object-fit: contain;
 }
 
+/* Pokémon-Details */
 .pokemon-detail {
   display: flex;
   flex-direction: column;
@@ -124,6 +130,7 @@ code {
   font-size: 1.1em;
 }
 
+/* Paginierung */
 .pagination {
   display: flex;
   justify-content: center;
@@ -136,21 +143,45 @@ code {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.pagination button {
-  margin: 0 5px;
-  padding: 8px 15px;
-  background-color: var(--secondary-color);
+/* Allgemeine Button-Stile */
+button {
+  padding: 10px 20px;
+  margin: 10px 5px;
+  font-size: 1em;
+  font-weight: bold;
   color: white;
   border: none;
-  border-radius: 20px;
+  border-radius: 25px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.pagination button:hover {
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+/* Spezifische Button-Stile */
+.answer-button {
+  background-color: var(--answer-button-color);
+}
+
+.answer-button:hover {
+  background-color: #45a049;
+}
+
+.nav-button {
+  background-color: var(--nav-button-color);
+}
+
+.nav-button:hover {
   background-color: var(--hover-color);
 }
 
+/* Pokémon-Quiz */
 .pokemon-quiz {
   max-width: 600px;
   margin: 20px auto;
@@ -170,19 +201,7 @@ code {
 .pokemon-quiz button {
   display: block;
   width: 100%;
-  padding: 12px;
   margin: 10px 0;
-  font-size: 16px;
-  cursor: pointer;
-  background-color: var(--secondary-color);
-  color: white;
-  border: none;
-  border-radius: 25px;
-  transition: background-color 0.3s ease;
-}
-
-.pokemon-quiz button:hover {
-  background-color: var(--hover-color);
 }
 
 .quiz-result {
@@ -190,6 +209,8 @@ code {
   font-size: 1.2em;
   margin-top: 20px;
 }
+
+/* Lese-Übung */
 .reading-exercise {
   max-width: 600px;
   margin: 20px auto;
@@ -206,26 +227,6 @@ code {
   margin-bottom: 20px;
 }
 
-.pokemon-name {
-  font-size: 2em;
-  margin-bottom: 20px;
-}
-
-.syllable {
-  display: inline-block;
-  margin: 0 5px;
-  padding: 5px;
-  background-color: var(--hover-color);
-  border-radius: 5px;
-}
-
-.reading-exercise button,
-.reading-exercise select {
-  margin: 10px;
-  padding: 10px 15px;
-  font-size: 1em;
-  cursor: pointer;
-}
 .reading-exercise .word {
   font-size: 2.5em;
   margin-bottom: 20px;
@@ -248,3 +249,159 @@ code {
   display: block;
   margin: 10px 0;
 }
+
+/* Schreib-Übung */
+.writing-exercise {
+  max-width: 400px;
+  margin: 20px auto;
+  text-align: center;
+  background-color: var(--card-background);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.writing-exercise input {
+  width: 80%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid var(--card-border);
+  border-radius: 5px;
+}
+
+/* Select-Elemente */
+select {
+  padding: 10px 20px;
+  font-size: 1em;
+  border: 1px solid var(--card-border);
+  border-radius: 25px;
+  background-color: var(--card-background);
+  cursor: pointer;
+}
+
+select:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+}
+
+.pokemon-detail {
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: var(--card-background);
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.pokemon-header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.pokemon-header h2 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+.pokemon-image {
+  width: 300px;
+  height: auto;
+  margin-top: 20px;
+}
+
+.pokemon-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.info-section {
+  background-color: var(--card-background);
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.info-section h3 {
+  color: var(--secondary-color);
+  margin-top: 0;
+}
+
+.type-list {
+  display: flex;
+  gap: 10px;
+}
+
+.type-badge {
+  padding: 5px 10px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.ability-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.ability-list li {
+  background-color: var(--hover-color);
+  margin-bottom: 5px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.stat-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+}
+
+.stat-name {
+  width: 100px;
+  text-transform: capitalize;
+}
+
+.stat-bar-container {
+  flex-grow: 1;
+  background-color: #e0e0e0;
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.stat-bar {
+  height: 100%;
+  background-color: var(--primary-color);
+}
+
+.stat-value {
+  width: 30px;
+  text-align: right;
+  margin-left: 10px;
+}
+
+.pokedex-entry {
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+/* Fügen Sie hier zusätzliche Stile für verschiedene Pokémon-Typen hinzu */
+.type-badge.fire { background-color: #F08030; }
+.type-badge.water { background-color: #6890F0; }
+.type-badge.grass { background-color: #78C850; }
+/* ... weitere Typen ... */

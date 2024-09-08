@@ -71,28 +71,27 @@ const PokemonQuiz = () => {
 
   return (
     <div className="pokemon-quiz">
-      <h2>Pokémon-Quiz</h2>
-      <select value={quizLength} onChange={handleQuizLengthChange}>
-        <option value="5">5 Fragen</option>
-        <option value="10">10 Fragen</option>
-        <option value="15">15 Fragen</option>
-        <option value="20">20 Fragen</option>
-      </select>
-      <p>Frage {currentQuestion + 1} von {quizLength}</p>
-      <p>Punkte: {score}</p>
-      {currentPokemon && (
-        <>
-          <img src={currentPokemon.sprites.other['official-artwork'].front_default} alt="Wer ist dieses Pokémon?" />
-          <p>Wer ist dieses Pokémon?</p>
-          {options.map((option, index) => (
-            <button key={index} onClick={() => handleAnswer(option)}>
-              {option}
-            </button>
-          ))}
-        </>
-      )}
-    </div>
-  );
+    <h2>Pokémon-Quiz</h2>
+    <select value={quizLength} onChange={handleQuizLengthChange}>
+      <option value="5">5 Fragen</option>
+      <option value="10">10 Fragen</option>
+      <option value="15">15 Fragen</option>
+      <option value="20">20 Fragen</option>
+    </select>
+    <p>Frage {currentQuestion + 1} von {quizLength}</p>
+    <p>Punkte: {score}</p>
+    {currentPokemon && (
+      <>
+        <img src={currentPokemon.sprites.other['official-artwork'].front_default} alt="Wer ist dieses Pokémon?" />
+        <p>Wer ist dieses Pokémon?</p>
+        {options.map((option, index) => (
+          <button className="answer-button" key={index} onClick={() => handleAnswer(option)}>
+            {option}
+          </button>
+        ))}
+      </>
+    )}
+  </div>
+  )
 };
-
 export default PokemonQuiz;

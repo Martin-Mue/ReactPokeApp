@@ -26,16 +26,16 @@ const PokemonSearch = () => {
 
   return (
     <form onSubmit={handleSearch}>
-      <input
-        type="text"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        placeholder="Pokémon suchen..."
-      />
-      <button type="submit">Suchen</button>
-      {error && <p>{error}</p>}
-    </form>
-  );
+    <input
+      type="text"
+      value={searchTerm}
+      onChange={(e) => setSearchTerm(e.target.value)}
+      placeholder="Pokémon suchen..."
+    />
+    <button className="nav-button" type="submit">Suchen</button>
+    {error && <p>{error}</p>}
+  </form>
+);
 };
 
 export default PokemonSearch;

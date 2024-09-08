@@ -41,23 +41,23 @@ const PokemonList = () => {
       
       return (
         <div className="pokemon-list">
-          <h1>Kompletter Pokédex</h1>
-          <PokemonSearch />
-          <button onClick={handleRandomPokemon}>Random Pokémon</button>
-          <div className="pokemon-grid">
-            {currentPokemon.map((pokemon, index) => (
-              <PokemonCard key={pokemon.name}  pokemon={{...pokemon, name: getGermanName(pokemon.name)}} pokedexNumber ={indexOfFirstPokemon + index + 1} />
-            ))}
-          </div>
-          <div className="pagination">
-            {Array.from({ length: Math.ceil(pokemonList.length / pokemonPerPage) }, (_, i) => (
-              <button key={i} onClick={() => paginate(i + 1)}>
-                {i + 1}
-              </button>
-            ))}
-          </div>
+        <h1>Kompletter Pokédex</h1>
+        <PokemonSearch />
+        <button className="nav-button" onClick={handleRandomPokemon}>Random Pokémon</button>
+        <div className="pokemon-grid">
+          {currentPokemon.map((pokemon, index) => (
+            <PokemonCard key={pokemon.name} pokemon={{...pokemon, name: getGermanName(pokemon.name)}} pokedexNumber={indexOfFirstPokemon + index + 1} />
+          ))}
         </div>
-      );
+        <div className="pagination">
+          {Array.from({ length: Math.ceil(pokemonList.length / pokemonPerPage) }, (_, i) => (
+            <button className="nav-button" key={i} onClick={() => paginate(i + 1)}>
+              {i + 1}
+            </button>
+          ))}
+        </div>
+      </div>
+    );
     };
 
 export default PokemonList;

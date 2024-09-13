@@ -1,0 +1,14 @@
+    "Apfel", "Baum", "Clown", "Dach", "Esel", "Fisch", "Gras", "Hund", "Igel", "Jacke",
+    "Katze", "Lupe", "Maus", "Nase", "Oma", "Papa", "Qualle", "Regen", "Sonne", "Tisch",
+    "Uhr", "Vase", "Wald", "Xylophon", "Yak", "Zebra", "Brot", "Schule", "Haus", "Auto",
+    "Blume", "Vogel", "Buch", "Stuhl", "Tür", "Fenster", "Garten", "Himmel", "Insel", "Kuh",
+"Lampe", "Mond", "Nacht", "Obst", "Pilz", "Rad", "Schaf", "Tafel", "Ufer", "Wasser",
+
+
+
+    "Zug", "Affe", "Ball", "Ente", "Frosch", "Giraffe", "Hase", "Iglu", "Känguru", "Löwe",
+    "Ananas", "Banane", "Erdbeere", "Giraffe", "Elefant", "Pinguin", "Schmetterling", "Regenbogen",
+    "Schaukel", "Rutsche", "Sandkasten", "Luftballon", "Drache", "Schiff", "Flugzeug", "Rakete",
+    "Roboter", "Dinosaurier", "Krokodil", "Eisbär", "Pinguin", "Delfin", "Schildkröte", "Eichhörnchen",
+    "Marienkäfer", "Schmetterling", "Biene", "Ameise", "Schnecke", "Regenwurm", "Seestern", "Muschel"
+  ];

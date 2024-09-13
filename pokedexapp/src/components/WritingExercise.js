@@ -1,5 +1,5 @@
 // src/components/WritingExercise.js
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback } from 'react';
 
 
 const zebraWords = [
@@ -15,74 +15,66 @@ const zebraWords = [
     "Marienkäfer", "Schmetterling", "Biene", "Ameise", "Schnecke", "Regenwurm", "Seestern", "Muschel"
   ];
 
-
-
-  
   const WritingExercise = () => {
-      const [inputValue, setInputValue] = useState('');
-      const [correctWord, setCorrectWord] = useState(() => {
+    const [inputValue, setInputValue] = useState('');
+    const [correctWord, setCorrectWord] = useState(() => {
         const randomIndex = Math.floor(Math.random() * zebraWords.length);
         return zebraWords[randomIndex];
-      });
-      const [feedback, setFeedback] = useState('');
-      const [imageUrl, setImageUrl] = useState(''); 
-      
-      const getRandomWord = useCallback(() => {
+    });
+    const [feedback, setFeedback] = useState('');
+
+    const getRandomWord = useCallback(() => {
         const randomIndex = Math.floor(Math.random() * zebraWords.length);
         return zebraWords[randomIndex];
-      }, []);
+    }, []);
 
+    const loadNewWord = useCallback(() => {
+        setCorrectWord(getRandomWord());
+        setInputValue('');
+        setFeedback('');
+    }, [getRandomWord]);
 
-  const loadNewWord = useCallback(() => {
-    setCorrectWord(getRandomWord());
-    setInputValue('');
-    setFeedback('');
-  }, [getRandomWord]);
+    const handleInputChange = (e) => {
+        setInputValue(e.target.value);
+    };
 
-  const handleInputChange = (e) => {
-    setInputValue(e.target.value);
-  };
+    const checkAnswer = () => {
+        if (inputValue.toLowerCase() === correctWord.toLowerCase()) {
+            setFeedback('Richtig! Gut gemacht!');
+        } else {
+            setFeedback('Versuche es noch einmal!');
+        }
+    };
 
-  const checkAnswer = () => {
-    if (inputValue.toLowerCase() === correctWord.toLowerCase()) {
-      setFeedback('Richtig! Gut gemacht!');
-    } else {
-      setFeedback('Versuche es noch einmal!');
-    }
-  };
-  const fetchImage = async (word) => {
-    try {
-      const response = await fetch(`https://api.unsplash.com/search/photos?query=${word}&client_id=YOUR_UNSPLASH_ACCESS_KEY`);
-      const data = await response.json();
-      if (data.results && data.results.length > 0) {
-        setImageUrl(data.results[0].urls.small);
-      } else {
-        setImageUrl('');
-      }
-    } catch (error) {
-      console.error('Error fetching image:', error);
-      setImageUrl('');
-    }
-  };
-  useEffect(() => {
-    fetchImage(correctWord);
-  }, [correctWord]);
-  return (
-    <div className="writing-exercise">
-    <h2>Schreibe das Wort:</h2>
-    {imageUrl && <img src={imageUrl} alt={correctWord} style={{maxWidth: '200px', maxHeight: '200px', objectFit: 'cover'}} />}
-    <h3>{correctWord}</h3>
-    <input
-      type="text"
-      value={inputValue}
-      onChange={handleInputChange}
-      placeholder="Schreibe hier..."
-    />
-    <button className="answer-button" onClick={checkAnswer}>Überprüfen</button>
-    <button className="nav-button" onClick={loadNewWord}>Nächstes Wort</button>
-    {feedback && <p>{feedback}</p>}
-  </div>
-);
+    const getImagePath = (word) => {
+        return `/images/${word.toLowerCase()}.jpg`;
+    };
+
+    return (
+        <div className="writing-exercise">
+            <h1 className="exercise-title">Schreibe das Wort:</h1>
+            <div className="image-container">
+                <img 
+                    src={getImagePath(correctWord)} 
+                    alt={correctWord} 
+                    onError={(e) => {e.target.onerror = null; e.target.src='/images/placeholder.jpg'}}
+                />
+            </div>
+            <h2 className="word-display">{correctWord}</h2>
+            <input
+                type="text"
+                value={inputValue}
+                onChange={handleInputChange}
+                placeholder="Schreibe hier..."
+                className="word-input"
+            />
+            <div className="button-container">
+                <button className="answer-button" onClick={checkAnswer}>Überprüfen</button>
+                <button className="nav-button" onClick={loadNewWord}>Nächstes Wort</button>
+            </div>
+            {feedback && <p className="feedback">{feedback}</p>}
+        </div>
+    );
 };
 
 export default WritingExercise;

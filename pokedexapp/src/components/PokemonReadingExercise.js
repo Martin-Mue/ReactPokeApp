@@ -14,50 +14,46 @@ const zebraWords = [
 
 // Phonetische Ausspracheregeln
 const phoneticRules = {
-    // Lange Vokale
-    'aa': 'a:', 'ee': 'e:', 'oo': 'o:', 'uu': 'u:',
-    'ah': 'a:', 'eh': 'e:', 'ih': 'i:', 'oh': 'o:', 'uh': 'u:',
-    'ie': 'i:',
-  
-    // Kurze Vokale vor Doppelkonsonanten
-    '([aeiouäöü])([bcdfghjklmnpqrstvwxyz])\\2': '$1$2',
-  
-    // Umlaute
-    'ä': 'ɛ', 'ö': 'ø', 'ü': 'y',
-  
-    // Diphthonge
-    'ei': 'ai', 'ai': 'ai', 'au': 'aʊ', 'eu': 'ɔʏ', 'äu': 'ɔʏ',
-  
-    // Konsonanten
-    'ch([aouAOU])': 'x$1',  // ach-Laut
-    'ch': 'ç',  // ich-Laut (Standardfall)
-    '^s([aeiouäöü])': 'z$1',  // stimmhaftes s am Wortanfang
-    's$': 's',  // stimmloses s am Wortende
-    '^sp': 'ʃp', '^st': 'ʃt',  // sp und st am Wortanfang
-    'v': 'f',  // v als f (Standardfall)
-    'w': 'v',
-    'z': 'ts',
-  
-    // Auslautverhärtung
-    'b$': 'p', 'd$': 't', 'g$': 'k',
-  
-    // r-Laute
-    'r([aeiouäöü])': 'r$1',  // gerolltes r vor Vokal
-    'er$': 'ɐ', 'er([bcdfghjklmnpqrstvwxyz])': 'ɐ$1',  // vokalisiertes r
-  
-    // ng und nk
-    'ng': 'ŋ', 'nk': 'ŋk',
-  
-    // Silbische Konsonanten
-    'el$': 'l̩', 'em$': 'm̩', 'en$': 'n̩',
-  
-    // Glottisschlag (schwer zu implementieren, hier vereinfacht)
-    '^[aeiouäöü]': 'ʔ$&',
-  
-    // Spezielle Pokémon-Regeln (Beispiele, erweitern Sie nach Bedarf)
-    'pok[ée]': 'poke:',
-    'chu': 'çu:',
-  };
+  // Lange Vokale
+  'aa': 'aː', 'ee': 'eː', 'oo': 'oː', 'uu': 'uː',
+  'ah': 'aː', 'eh': 'eː', 'ih': 'iː', 'oh': 'oː', 'uh': 'uː',
+  'ie': 'iː',
+
+  // Kurze Vokale vor Doppelkonsonanten
+  '([aeiouäöü])([bcdfghjklmnpqrstvwxyz])\\2': '$1$2',
+
+  // Umlaute
+  'ä': 'ɛ', 'ö': 'ø', 'ü': 'y',
+
+  // Diphthonge
+  'ei': 'aɪ̯', 'ai': 'aɪ̯', 'au': 'aʊ̯', 'eu': 'ɔʏ̯', 'äu': 'ɔʏ̯',
+
+  // Konsonanten
+  'ch([aouAOU])': 'x$1',  // ach-Laut
+  'ch': 'ç',  // ich-Laut (Standardfall)
+  '^s([aeiouäöü])': 'z$1',  // stimmhaftes s am Wortanfang
+  's$': 's',  // stimmloses s am Wortende
+  '^sp': 'ʃp', '^st': 'ʃt',  // sp und st am Wortanfang
+  'v': 'f',  // v als f (Standardfall)
+  'w': 'v',
+  'z': 'ts',
+
+  // Auslautverhärtung
+  'b$': 'p', 'd$': 't', 'g$': 'k',
+
+  // r-Laute
+  'r([aeiouäöü])': 'ʁ$1',  // gerolltes r vor Vokal
+  'er$': 'ɐ', 'er([bcdfghjklmnpqrstvwxyz])': 'ɐ$1',  // vokalisiertes r
+
+  // ng und nk
+  'ng': 'ŋ', 'nk': 'ŋk',
+
+  // Silbische Konsonanten
+  'el$': 'l̩', 'em$': 'm̩', 'en$': 'n̩',
+
+  // Glottisschlag (schwer zu implementieren, hier vereinfacht)
+  '^[aeiouäöü]': 'ʔ$&',
+};
   
   const getPhoneticTranscription = (word) => {
     let phoneticWord = word.toLowerCase();

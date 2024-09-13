@@ -1,0 +1,98 @@
+.writing-exercise {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Kinderfreundliche Schriftart */
+}
+
+.exercise-title {
+    font-size: 3rem; /* Größere Schriftgröße */
+    color: #4a4a4a;
+    margin-bottom: 20px;
+}
+
+.image-container {
+    width: 100%;
+    max-width: 500px; /* Größeres Maximalbild */
+    margin: 0 auto 20px;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.word-display {
+    font-size: 8rem; /* Noch größere Schriftgröße für das Wort */
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.word-input {
+    font-size: 4rem; /* Größere Schriftgröße für die Eingabe */
+    padding: 10px;
+    width: 80%;
+    max-width: 400px; /* Breitere Eingabe */
+    margin-bottom: 20px;
+    border: 2px solid #3498db;
+    border-radius: 5px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.answer-button, .nav-button {
+    font-size: 1.5rem; /* Größere Schriftgröße für Buttons */
+    padding: 12px 24px; /* Größere Buttons */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.answer-button {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.nav-button {
+    background-color: #3498db;
+    color: white;
+}
+
+.answer-button:hover, .nav-button:hover {
+    opacity: 0.9;
+}
+
+.feedback {
+    font-size: 2rem; /* Größere Schriftgröße für Feedback */
+    font-weight: bold;
+    color: #e74c3c;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .exercise-title {
+        font-size: 2.5rem; /* Größere Schriftgröße für mobile Geräte */
+    }
+
+    .word-display {
+        font-size: 3rem; /* Größere Schriftgröße für mobile Geräte */
+    }
+
+    .word-input {
+        font-size: 2.5rem; /* Größere Schriftgröße für mobile Geräte */
+    }
+
+    .answer-button, .nav-button {
+        font-size: 1.2rem; /* Größere Schriftgröße für mobile Geräte */
+        padding: 10px 20px; /* Größere Buttons für mobile Geräte */
+    }
+}
